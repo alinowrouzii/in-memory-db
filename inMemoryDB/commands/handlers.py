@@ -54,7 +54,6 @@ def listHandler():
 
 
 def dumpDBHandler(db_name, db_path):
-    print(os.path.dirname(db_path))
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
 
     db = None

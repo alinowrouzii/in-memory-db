@@ -25,7 +25,6 @@ def runner():
                     setHandler(key, value)
                     logger("OK")
                 except Exception as e:
-                    print(e)
                     logger("Invalid value")
             else:
                 logger("Invalid command")
