@@ -1,8 +1,8 @@
 from ast import literal_eval
-import settings
+from inMemoryDB import settings
 import os
-from commands.handlers import sayDBHandler, setHandler, getHandler, delHandler, keysHandler, useHandler, listHandler
-from config.conf import logger
+from inMemoryDB.commands.handlers import sayDBHandler, setHandler, getHandler, delHandler, keysHandler, useHandler, listHandler
+from inMemoryDB.config.conf import logger
 
 
 def checkLengthValidity(arr, minLen):

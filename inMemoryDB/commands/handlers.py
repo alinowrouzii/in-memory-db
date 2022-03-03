@@ -1,6 +1,6 @@
 from inMemoryDB.settings import dbs, db_in_use
-from ..config.conf import logger
-from ..utils.util import findMatchedKeys
+from inMemoryDB.config.conf import logger
+from inMemoryDB.utils.util import findMatchedKeys
 
 def setHandler(key, value):
     db = dbs[db_in_use]
