@@ -1,6 +1,8 @@
+import json
 from inMemoryDB.settings import dbs, db_in_use
 from inMemoryDB.config.conf import logger
 from inMemoryDB.utils.util import findMatchedKeys
+
 
 def setHandler(key, value):
     db = dbs[db_in_use]
@@ -22,27 +24,52 @@ def getHandler(key):
 def delHandler(key):
     db = dbs[db_in_use]
     try:
-        del db['key']
+        del db[key]
         dbs[db_in_use] = db
     except Exception:
         raise Exception("Key does not exist")
+
 
 def keysHandler(regex):
     db = dbs[db_in_use]
     return findMatchedKeys(db, regex)
 
+
 def useHandler(db_name):
-    if db_name in dbs:
-        # TODO check below
-        # global db_in_use
-        db_in_use = db_name
-    else:
-        raise Exception("DB not exists")
+
+    if db_name not in dbs:
+        dbs[db_name] = {}
+
+    # TODO check below
+    global db_in_use
+    db_in_use = db_name
+
 
 def sayDBHandler():
     return db_in_use
 
+
 def listHandler():
-    return dbs.keys()
+    return list(dbs.keys())
 
 
+def dumpDBHandler(db_name, db_path):
+    db = None
+    try:
+        db = dbs[db_name]
+    except:
+        raise Exception("DB does not exist")
+    json_db = json.dumps(db)
+
+    with open(db_path, "w", encoding="UTF-8") as output:
+        output.write(json_db)
+
+
+def loadDBHandler(db_name, db_path):
+    try:
+        f = open(db_path)
+
+        db = json.load(f)
+        dbs[db_name] = db
+    except Exception:
+        raise Exception("File does not exist")

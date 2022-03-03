@@ -1,5 +1,0 @@
-setup.py
-inMemoryDB.egg-info/PKG-INFO
-inMemoryDB.egg-info/SOURCES.txt
-inMemoryDB.egg-info/dependency_links.txt
-inMemoryDB.egg-info/top_level.txt
