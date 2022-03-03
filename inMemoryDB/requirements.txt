@@ -1,3 +1,0 @@
-dpath==2.0.6
-# Editable install with no version control (inMemoryDB==1.0)
--e /home/redhat/data/balad/in-memory-database
