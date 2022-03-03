@@ -1,4 +1,5 @@
 import json
+import os
 from inMemoryDB.settings import dbs, db_in_use
 from inMemoryDB.utils.util import findMatchedKeys
 
@@ -53,6 +54,9 @@ def listHandler():
 
 
 def dumpDBHandler(db_name, db_path):
+    print(os.path.dirname(db_path))
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+
     db = None
     try:
         db = dbs[db_name]
