@@ -9,19 +9,31 @@ def checkLengthValidity(arr, minLen):
         return True
     return False
 
+def findNthWordIndex(text, Nth):
+    foundedWord = 1
+    for i in range(1, len(text)):
+        if text[i] !=" " and text[i-1] == " ":
+            foundedWord+=1
+        if foundedWord == Nth:
+            return i
+    return 0
 
 def runner():
 
     while True:
-        user_input = input()
-        user_input = user_input.strip().split(" ")
+        user_input = input().strip()
+        value_input = user_input
+        user_input = user_input.split(" ")
         if user_input[0] == "set":
             # TODO move valid length of commans to one file
             if(checkLengthValidity(user_input, 3)):
                 key = user_input[1]
                 value = None
                 try:
-                    value = literal_eval(''.join(user_input[2:]))
+                    value_start_index = findNthWordIndex(value_input, 3)
+                    # value = literal_eval(''.join(user_input[2:]))
+                    value = literal_eval(value_input[value_start_index:])
+                    
                     setHandler(key, value)
                     logger("OK")
                 except Exception as e:
