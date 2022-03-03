@@ -1,6 +1,5 @@
 import json
 from inMemoryDB.settings import dbs, db_in_use
-from inMemoryDB.config.conf import logger
 from inMemoryDB.utils.util import findMatchedKeys
 
 
