@@ -1,4 +1,4 @@
 autopep8==1.6.0
--e git+https://github.com/alinowrouzii/in-memory-db.git@230c18efe8758fc65c1220528579155cf3cc88d0#egg=inMemoryDB
+-e git+https://github.com/alinowrouzii/in-memory-db.git@3605a70a19c219a12be23c4c507d97a271af01d6#egg=inMemoryDB
 pycodestyle==2.8.0
 toml==0.10.2
