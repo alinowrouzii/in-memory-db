@@ -21,7 +21,7 @@ def runner():
                 key = user_input[1]
                 value = None
                 try:
-                    value = ''.join(user_input[2:])
+                    value = literal_eval(''.join(user_input[2:]))
                     setHandler(key, value)
                     logger("OK")
                 except Exception as e:
